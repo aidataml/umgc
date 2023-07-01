@@ -1,36 +1,61 @@
-/* Write a function called countdown that accepts a number as a parameter and every 1000 milliseconds 
-decrements the value and console.logs it. Once the value is 0 it should log DONE! and stop.*/
+/* Write the code necessary to do the following:
 
-function countdown(number){
-  let countdownTimer = setInterval(function() {
-    number = number - 1;
+1. Select the section with an id of container without using querySelector.
+2. Select the section with an id of container using querySelector.
+3. Select all of the list items with a class of “second”.
+4. Select a list item with a class of third, but only the list item inside of the ol tag.
+5. Give the section with an id of container the text “Hello!”.
+6. Add the class main to the div with a class of footer.
+7. Remove the class main on the div with a class of footer.
+8. Create a new li element.
+9. Give the li the text “four”.
+10. Append the li to the ul element.
+11. Loop over all of the lis inside the ol tag and give them a background color of “green”.
+12. Remove the div with a class of footer*/
 
-  if (number <= 0) {
-    clearInterval(countdownTimer);
-    console.log("DONE!");
-} else {
-    console.log(number);
-    }
-},1000)
+// 1. Select the section with an id of container without using querySelector.
+
+document.getElementById("container");
+
+// 2. Select the section with an id of container using querySelector.
+
+document.querySelector("#container");
+
+// 3. Select all of the list items with a class of “second”.
+
+document.querySelectorAll(".second");
+
+// 4. Select a list item with a class of third, but only the list item inside of the ol tag.
+
+document.querySelectorAll("ol .third");
+
+// 5. Give the section with an id of container the text “Hello!”.
+
+const containerId = document.querySelector("#container");
+containerId.innertext = "Hello!";
+
+// 6. Add the class main to the div with a class of footer.
+const footerClass = document.querySelector(".footer");
+footerClass.classList.add("main");
+
+// 7. Remove the class main on the div with a class of footer.
+footerClass.classList.remove("main");
+
+// 8. Create a new li element.
+const newLiElement = document.createElement("li");
+
+// 9. Give the li the text “four”.
+newLiElement.innerText = "four";
+
+// 10. Append the li to the ul element.
+const ulElement = document.querySelector("ul");
+ulElement.appendChild(newLiElement);
+
+// 11. Loop over all of the lis inside the ol tag and give them a background color of “green”.
+const allLisInOl = document.querySelectorAll("ol li")
+for(let i = 0; i < allLisInOl.length; i = i + 1){
+  allLisInOl[i].style.backgroundColor = "green";
 }
 
-/* Write a function called randomGame that selects a random number between 0 and 1 every 1000 milliseconds 
-and each time that a random number is picked, add 1 to a counter. If the number is greater than .75, stop 
-the timer and console.log the number of tries it took before we found a number greater than .75.*/
-
-function randomGame(){
-    let counter = 0;
-
-  let randomTimer = setInterval(function() {
-    number = Math.random();
-    counter = counter + 1;
-
-  if (number > 0.75) {
-    console.log(number);
-    clearInterval(randomTimer);
-    console.log("It took " + counter + " times to find a number greater than 0.75.");
-} else {
-    console.log(number);
-    }
-},1000)
-}
+// 12. Remove the div with a class of footer
+footerClass.remove();
