@@ -1,36 +1,25 @@
-/* Write a function called countdown that accepts a number as a parameter and every 1000 milliseconds 
-decrements the value and console.logs it. Once the value is 0 it should log DONE! and stop.*/
+/* ****Arrow Functions Exercise****
 
-function countdown(number){
-  let countdownTimer = setInterval(function() {
-    number = number - 1;
+function double(arr) {
+  return arr.map(function(val) {
+    return val * 2;
+  });
+}*/
 
-  if (number <= 0) {
-    clearInterval(countdownTimer);
-    console.log("DONE!");
-} else {
-    console.log(number);
-    }
-},1000)
-}
+/* Refactor the above code to use two arrow functions. Turn it into a one-liner.*/
 
-/* Write a function called randomGame that selects a random number between 0 and 1 every 1000 milliseconds 
-and each time that a random number is picked, add 1 to a counter. If the number is greater than .75, stop 
-the timer and console.log the number of tries it took before we found a number greater than .75.*/
+const double = arr => arr.map(val => val * 2);
 
-function randomGame(){
-    let counter = 0;
+/* Replace ALL functions with arrow functions:
 
-  let randomTimer = setInterval(function() {
-    number = Math.random();
-    counter = counter + 1;
+function squareAndFindEvens(numbers){
+  var squares = numbers.map(function(num){
+    return num ** 2;
+  });
+  var evens = squares.filter(function(square){
+    return square % 2 === 0;
+  });
+  return evens;
+}*/
 
-  if (number > 0.75) {
-    console.log(number);
-    clearInterval(randomTimer);
-    console.log("It took " + counter + " times to find a number greater than 0.75.");
-} else {
-    console.log(number);
-    }
-},1000)
-}
+const squareAndFindEvens = numbers => numbers.map(val => val ** 2).filter(square => square % 2 === 0);
