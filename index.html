@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <main>
-        <h1>Timers Exercise</h1>
-        <p>For the solution, please see the associated JavaScript file (script.js).</p> 
-    </main>
-	<script src="script.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>To-Do List</title>
+</head>
+<body>
+    <form id="todoForm">
+        <label for="task">Enter New Task:</label><br><br>
+        <input type="text" id="task" name="task" autofocus>
+        <input type="submit" value="Submit Task">
+    </form>
+    <ul id="todoList">
+        <li>The list of todos will be placed here.</li>
+    </ul>
+
+    <script src="script.js"></script>
+</body>
 </html>

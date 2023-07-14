@@ -1,36 +1,33 @@
-/* Write a function called countdown that accepts a number as a parameter and every 1000 milliseconds 
-decrements the value and console.logs it. Once the value is 0 it should log DONE! and stop.*/
+// Ensure site is fully loaded.
+document.addEventListener("DOMContentLoaded", function() {
+let todoForm = document.querySelector("#todoForm");
+let todoList = document.querySelector("#todoList");
 
-function countdown(number){
-  let countdownTimer = setInterval(function() {
-    number = number - 1;
-
-  if (number <= 0) {
-    clearInterval(countdownTimer);
-    console.log("DONE!");
-} else {
-    console.log(number);
-    }
-},1000)
-}
-
-/* Write a function called randomGame that selects a random number between 0 and 1 every 1000 milliseconds 
-and each time that a random number is picked, add 1 to a counter. If the number is greater than .75, stop 
-the timer and console.log the number of tries it took before we found a number greater than .75.*/
-
-function randomGame(){
-    let counter = 0;
-
-  let randomTimer = setInterval(function() {
-    number = Math.random();
-    counter = counter + 1;
-
-  if (number > 0.75) {
-    console.log(number);
-    clearInterval(randomTimer);
-    console.log("It took " + counter + " times to find a number greater than 0.75.");
-} else {
-    console.log(number);
-    }
-},1000)
-}
+// Listen for task submission event.
+todoForm.addEventListener("submit", function(event){
+    event.preventDefault();
+  
+      let removeButton = document.createElement("button");
+      removeButton.innerText = "Remove";
+      removeButton.classList.add('buttonRemove');
+  
+      let newTask = document.createElement("li");
+      newTask.innerText = document.querySelector("#task").value;
+      
+      // Add new task to the end of the list. Add remove button to new list item. 
+      todoList.appendChild(newTask);
+      newTask.appendChild(removeButton);
+      
+      todoForm.reset();
+    });
+  
+    // Listen for an event on the task list. Strike-through completed tasks. Delete removed tasks. 
+    todoList.addEventListener("click", function(event) {
+      const targetTagToLowerCase = event.target.tagName.toLowerCase();
+      if (targetTagToLowerCase === "li") {
+        event.target.style.textDecoration = "line-through";
+      } else if (targetTagToLowerCase === "button") {
+        event.target.parentNode.remove();
+      }
+    });
+  });
