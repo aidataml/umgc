@@ -1,36 +1,93 @@
-/* Write a function called countdown that accepts a number as a parameter and every 1000 milliseconds 
-decrements the value and console.logs it. Once the value is 0 it should log DONE! and stop.*/
+/* **Same keys and values**
 
-function countdown(number){
-  let countdownTimer = setInterval(function() {
-    number = number - 1;
-
-  if (number <= 0) {
-    clearInterval(countdownTimer);
-    console.log("DONE!");
-} else {
-    console.log(number);
-    }
-},1000)
+function createInstructor(firstName, lastName){
+  return {
+    firstName: firstName,
+    lastName: lastName
+  }
 }
 
-/* Write a function called randomGame that selects a random number between 0 and 1 every 1000 milliseconds 
-and each time that a random number is picked, add 1 to a counter. If the number is greater than .75, stop 
-the timer and console.log the number of tries it took before we found a number greater than .75.*/
+Write an ES2015 Version */
 
-function randomGame(){
-    let counter = 0;
-
-  let randomTimer = setInterval(function() {
-    number = Math.random();
-    counter = counter + 1;
-
-  if (number > 0.75) {
-    console.log(number);
-    clearInterval(randomTimer);
-    console.log("It took " + counter + " times to find a number greater than 0.75.");
-} else {
-    console.log(number);
+function createInstructor(firstName, lastName){
+    return {
+      firstName,
+      lastName
     }
-},1000)
+  }
+
+/* ****Computed Property Names****
+
+var favoriteNumber = 42;
+
+var instructor = {
+  firstName: "Colt"
+}
+
+instructor[favoriteNumber] = "That is my favorite!"
+
+Write an ES2015 Version */
+
+let favoriteNumber = 42;
+
+const instructor1 = {
+  firstName: "Colt",
+  [favoriteNumber]: "That is my favorite!"
+}
+
+/* Object Methods
+
+var instructor = {
+  firstName: "Colt",
+  sayHi: function(){
+    return "Hi!";
+  },
+  sayBye: function(){
+    return this.firstName + " says bye!";
+  }
+}
+
+Write an ES2015 Version */
+
+const instructor2 = { 
+    firstName: "Colt", 
+    sayHi(){ 
+        return "Hi!"; 
+    }, 
+    sayBye(){ 
+        return this.firstName + " says bye!";
+    } 
+}
+
+/* ## **createAnimal function**
+
+Write a function which generates an animal object. The function should accepts 3 arguments:
+
+- species: the species of animal (‘cat’, ‘dog’)
+- verb: a string used to name a function (‘bark’, ‘bleet’)
+- noise: a string to be printed when above function is called (‘woof’, ‘baaa’)
+
+Use one or more of the object enhancements we’ve covered.
+
+const d = createAnimal("dog", "bark", "Woooof!")
+// {species: "dog", bark: ƒ}
+d.bark()  //"Woooof!"
+
+const s = createAnimal("sheep", "bleet", "BAAAAaaaa")
+// {species: "sheep", bleet: ƒ}
+s.bleet() //"BAAAAaaaa"*/
+
+const d = createAnimal("dog", "bark", "Woooof!") 
+d.bark()
+
+const s = createAnimal("sheep", "bleet", "BAAAAaaaa")
+s.bleet() 
+
+function createAnimal(species, verb, noise){ 
+    return {
+        species, 
+        [verb](){ 
+            return noise;
+        } 
+    } 
 }
