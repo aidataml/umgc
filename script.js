@@ -1,36 +1,143 @@
-/* Write a function called countdown that accepts a number as a parameter and every 1000 milliseconds 
-decrements the value and console.logs it. Once the value is 0 it should log DONE! and stop.*/
+/* # ****Big-O Notation Practice****
 
-function countdown(number){
-  let countdownTimer = setInterval(function() {
-    number = number - 1;
+In this exercise, you’ll analyze expressions and code to figure out the time complexity.
 
-  if (number <= 0) {
-    clearInterval(countdownTimer);
-    console.log("DONE!");
-} else {
-    console.log(number);
-    }
-},1000)
+## **Step One: Simplifying Expressions**
+
+Simplify the following big O expressions as much as possible:
+
+1. O(n + 10) 
+O(n)
+
+2. O(100 * n)
+O(n)
+
+3. O(25)
+O(1)
+
+4. O(n^2 + n^3)
+O(n^3) // n^3 is worse than n^2 so the "+n^2" is not significant.
+
+5. O(n + n + n + n)
+O(n)
+
+6. O(1000 * log(n) + n)
+O(n)
+
+7. O(1000 * n * log(n) + n)
+O(n log n)
+
+8. O(2^n + n^2)
+O(2^n)
+
+9. O(5 + 3 + 1)
+O(1)
+
+10. O(n + n^(1/2) + n^2 + n * log(n)^10)
+O(n^2) // n^2 is worse, so the rest is not significant.
+
+## **Step Two: Calculating Time Complexity**
+
+Determine the time complexities for each of the following functions. If you’re not sure what these functions do, copy and paste them into the console and experiment with different inputs!
+
+```jsx
+function logUpTo(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log(i);
+  }
 }
+```
+Time Complexity: O(n)
 
-/* Write a function called randomGame that selects a random number between 0 and 1 every 1000 milliseconds 
-and each time that a random number is picked, add 1 to a counter. If the number is greater than .75, stop 
-the timer and console.log the number of tries it took before we found a number greater than .75.*/
-
-function randomGame(){
-    let counter = 0;
-
-  let randomTimer = setInterval(function() {
-    number = Math.random();
-    counter = counter + 1;
-
-  if (number > 0.75) {
-    console.log(number);
-    clearInterval(randomTimer);
-    console.log("It took " + counter + " times to find a number greater than 0.75.");
-} else {
-    console.log(number);
-    }
-},1000)
+```jsx
+function logAtLeast10(n) {
+  for (let i = 1; i <= Math.max(n, 10); i++) {
+    console.log(i);
+  }
 }
+```
+
+Time Complexity: O(n)
+
+```jsx
+function logAtMost10(n) {
+  for (let i = 1; i <= Math.min(n, 10); i++) {
+    console.log(i);
+  }
+}
+```
+
+Time Complexity: O(1)
+
+```jsx
+function onlyElementsAtEvenIndex(array) {
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
+```
+
+Time Complexity: O(n)
+
+```jsx
+function subtotals(array) {
+  let subtotalArray = [];
+  for (let i = 0; i < array.length; i++) {
+    let subtotal = 0;
+    for (let j = 0; j <= i; j++) {
+      subtotal += array[j];
+    }
+    subtotalArray.push(subtotal);
+  }
+  return subtotalArray;
+}
+```
+
+Time Complexity: O(n^2)
+
+```jsx
+function vowelCount(str) {
+  let vowelCount = {};
+  const vowels = "aeiouAEIOU";
+
+  for (let char of str) {
+    if(vowels.includes(char)) {
+      if(char in vowelCount) {
+        vowelCount[char] += 1;
+      } else {
+        vowelCount[char] = 1;
+      }
+    }
+  }
+
+  return vowelCount;
+}
+```
+
+Time Complexity: O(n)
+
+## **Part 3 - short answer**
+
+Answer the following questions
+
+1. True or false: n^2 + n is O(n^2). True
+2. True or false: n^2 * n is O(n^3). True
+3. True or false: n^2 + n is O(n). False. It would be O(n^2) since the "+n" is not significant.
+4. What’s the time complexity of the .indexOf array method? O(n)
+5. What’s the time complexity of the .includes array method? O(n)
+6. What’s the time complexity of the .forEach array method? O(n)
+7. What’s the time complexity of the .sort array method? O(n log n)
+8. What’s the time complexity of the .unshift array method? O(n)
+9. What’s the time complexity of the .push array method? O(1)
+10. What’s the time complexity of the .splice array method? O(n)
+11. What’s the time complexity of the .pop array method? O(1)
+12. What’s the time complexity of the Object.keys() function? O(n)
+
+### **BONUS**
+
+1. What’s the space complexity of the Object.keys() function? O(n)
+*/
