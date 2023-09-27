@@ -125,19 +125,49 @@ Time Complexity: O(n)
 Answer the following questions
 
 1. True or false: n^2 + n is O(n^2). True
+
 2. True or false: n^2 * n is O(n^3). True
+
 3. True or false: n^2 + n is O(n). False. It would be O(n^2) since the "+n" is not significant.
-4. What’s the time complexity of the .indexOf array method? O(n)
-5. What’s the time complexity of the .includes array method? O(n)
-6. What’s the time complexity of the .forEach array method? O(n)
-7. What’s the time complexity of the .sort array method? O(n log n)
-8. What’s the time complexity of the .unshift array method? O(n)
-9. What’s the time complexity of the .push array method? O(1)
-10. What’s the time complexity of the .splice array method? O(n)
-11. What’s the time complexity of the .pop array method? O(1)
-12. What’s the time complexity of the Object.keys() function? O(n)
+
+4. What’s the time complexity of the .indexOf array method? 
+O(n): When searching for the first index of a specific value, time increases as the number of elements in the
+array increases.
+
+5. What’s the time complexity of the .includes array method? 
+O(n): When searching an array to see if it includes a certain value, time increases as the number of elements in the
+array increases.
+
+6. What’s the time complexity of the .forEach array method? 
+O(n): When performing a function for each element in an array, time increases as the number of elements in the
+array increases.
+
+7. What’s the time complexity of the .sort array method? 
+O(n log n): When comparing and shifting elements in an array in order to perform a sort, time increases significantly 
+as the number of elements in the array increases.
+
+8. What’s the time complexity of the .unshift array method? 
+O(n): Adding a new element to the beginning of the array shifts all other elements of the array. Therefore, time increases 
+as the number of elements in the array increases. 
+
+9. What’s the time complexity of the .push array method? 
+O(1): Constant. An addition of elements at the end of an array does not impact the rest of the array. As the size of 
+the array increases, time to execute a .push method remains constant. 
+
+10. What’s the time complexity of the .splice array method? 
+O(n): When adding, removing or replacing elements in an array, all elements may be shifted. Therefore, time increases 
+as the number of elements in the array increases. 
+
+11. What’s the time complexity of the .pop array method? 
+O(1): Removing the last element of an array does not impact the rest of the array. As the size of the array increases, 
+time remains constant. 
+
+12. What’s the time complexity of the Object.keys() function? 
+O(n): When returning the keys of an object, the function will be performed on all key/value pairs in the object. 
+Therefore, time increases as the number of key/value pairs increases. 
 
 ### **BONUS**
 
-1. What’s the space complexity of the Object.keys() function? O(n)
+1. What’s the space complexity of the Object.keys() function? 
+O(n): The amount of memory needed to execute the function increases as the number of key/value pairs increases.
 */
